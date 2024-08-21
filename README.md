@@ -40,10 +40,15 @@ Once the project is set up, you can:
 ## 📂 Project Structure
 
 ✦ /html: Directory containing the HTML files for the website, including index.html.
+
 ✦ /css: Stylesheets to handle the website's design and layout.
+
 ✦ /js: JavaScript files used for interactivity and functionality.
+
 ✦ /fonts: Custom fonts used in the project.
+
 ✦ /img: Directory containing all images used in the project.
+
 ✦ /legal: Legal document, containing Terms of Service and Privacy Policy file.
 
 ## 📝 License
