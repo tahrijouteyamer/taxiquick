@@ -52,4 +52,4 @@ Once the project is set up, you can:
 ✦ /legal: Legal document, containing Terms of Service and Privacy Policy file.
 
 ## 📝 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the LICENSE file for details. [MIT License](LICENSE).
