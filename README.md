@@ -32,10 +32,10 @@ Simply open the index.html file in your preferred web browser to view the homepa
 
 Once the project is set up, you can:
 
-• Navigate to the homepage to explore TaxiQuick's features.
-• Use the "Book Now" button to reserve a taxi.
-• Check out the "Why Choose TaxiQuick" section to learn more about the benefits of our service.
-• Explore standout features, testimonials, and more.
+- Navigate to the homepage to explore TaxiQuick's features.
+- Use the "Book Now" button to reserve a taxi.
+- Check out the "Why Choose TaxiQuick" section to learn more about the benefits of our service.
+- Explore standout features, testimonials, and more.
 
 ## 📂 Project Structure
 
