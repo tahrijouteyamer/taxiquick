@@ -26,7 +26,8 @@ Follow these steps to set up the project locally:
    cd taxiquick
 
 3. **Open the index.html file:**
-Simply open the index.html file in your preferred web browser to view the homepage.
+   ```bash
+   Simply open the index.html file in your preferred web browser to view the homepage.
 
 ## 🚀 Usage
 
