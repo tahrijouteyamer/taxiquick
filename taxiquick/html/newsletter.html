@@ -1,0 +1,159 @@
+<!doctype html>
+<html class="h-100" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon.png">
+    <meta name="author" content="Amer Tahri-Joutey, Hassan Chalf">
+    <meta name="generator" content="Eleventy v2.0.0">
+    <meta name="HandheldFriendly" content="true">
+    <title>TaxiQuick — Subscribe to Our Newsletter</title>
+    <link rel="stylesheet" href="/css/main.css">
+
+<style>
+video {
+    position: absolute;
+    top: 50%;
+    left: 69%;
+    width: 62%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+#notification {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00593a;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-size: 18px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeDown 0.7s ease-in-out forwards;
+}
+
+@keyframes fadeDown {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50px); /* Start slightly above */
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 20px); /* End at the desired position */
+    }
+}
+
+.close-btn {
+     cursor: pointer;
+     padding-left: 10px;
+     font-size: 17px;
+}
+</style>
+
+<script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const emailInput = document.getElementById('exampleInputEmail1');
+            const emailValue = emailInput.value;
+            const consentCheck = document.getElementById('consentCheck');
+
+            if (emailInput && consentCheck) {
+                showNotification('Success! Thank you for subscribing to our newsletter.');
+                emailInput.value = '';
+                consentCheck.checked = false;
+            } else {
+                showNotification('Please enter a valid email and check the consent box.');
+            }
+        }
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.innerHTML = message + ' <span class="close-btn">✕</span>';
+            notification.style.display = 'block';
+
+            setTimeout(() => {
+                notification.style.opacity = '0';
+
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                    notification.style.opacity = '1';
+                }, 500);
+            }, 4000); 
+
+            document.querySelector('.close-btn').addEventListener('click', () => {
+                notification.style.display = 'none';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const notification = document.getElementById('notification');
+            notification.addEventListener('click', () => {
+                notification.style.display = 'none';
+            });
+        });
+</script>
+</head>
+
+<body class="d-flex h-100 w-100 bg-black text-white" data-bs-spy="scroll" data-bs-target="#navScroll">
+    <div id="notification"></div>
+    <div class="h-100 container-fluid">
+        <div class="h-100 row d-flex align-items-stretch">
+            <div class="col-12 col-md-7 col-lg-6 col-xl-5 d-flex align-items-start flex-column px-vw-5">
+                <header class="mb-auto py-vh-2 col-12">
+                    <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="index.html">
+                        <img src="/img/Taxi.png" width="30" height="30" style="margin-top: -10px;"
+                            class="d-inline-block align-text-top me-2" alt="TaxiQuick logo">
+                        <span class="ms-md-1 mt-1 fw-bolder me-md-5" style="font-family: sans-serif">TaxiQuick</span>
+                    </a>
+                    <div style="position: relative; margin-top: 70px;">
+                        <span class="h5 text-secondary fw-lighter" style="font-size: 30px;">Join the TaxiQuick Community</span>
+                        <h2 class="display-4" style="font-size: 42px;">Get exclusive updates, offers, and tips on navigating
+                            London with ease</h2>
+                    </div>
+
+                    <main class="mb-auto col-xl-9" style="margin-top: 60px;">
+                        <h1 style="font-size: 35px; margin-bottom: 25px;">Enter your email address</h1>
+
+                        <form class="row" onsubmit="handleFormSubmit(event)">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <input type="email" name="email"
+                                        class="form-control form-control-lg bg-gray-800 border-dark"
+                                        id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="xyz@gmail.com"
+                                        required>
+                                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                </div>
+                                <div class="mb-3 form-check py-3">
+                                    <input type="checkbox" class="form-check-input" id="consentCheck" required>
+                                    <label class="form-check-label" for="consentCheck">Yes, I want to receive exclusive
+                                        offers and updates in the newsletter.</label>
+                                </div>
+                                <button type="submit" class="btn btn-white btn-xl"
+                                    style="border-color: white;">Subscribe</button>
+                            </div>
+                        </form>
+                    </main>
+                </header>
+            </div>
+            <div class="col-12 col-md-5 col-lg-6 col-xl-7">
+                <video autoplay loop muted playsinline style="opacity: 0.7;">
+                    <source src="/img/video1.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
