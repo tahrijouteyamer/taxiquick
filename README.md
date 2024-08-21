@@ -2,7 +2,7 @@
 
 Welcome to **TaxiQuick**, London's top choice for fast and reliable taxi service. Book your ride in seconds and enjoy a seamless travel experience across the city, available 24/7.
 
-## 🚓 About TaxiQuick
+## 🚕 About TaxiQuick
 
 TaxiQuick is a modern taxi service focused on providing quick, dependable, and comfortable rides throughout London. Our platform offers an easy-to-use interface for booking taxis, real-time tracking, and exceptional customer support. Whether you're commuting to work, heading to the airport, or exploring the city, TaxiQuick is here to get you there on time.
 
