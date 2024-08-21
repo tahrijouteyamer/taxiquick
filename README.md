@@ -19,7 +19,7 @@ Follow these steps to set up the project locally:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/tahrijouteyamer/taxiquick.git
+   git clone https://github.com/tahrijouteyamer/webstack-portfolio_project.git
 
 2. **Navigate to the Project Directory:**
    ```bash
