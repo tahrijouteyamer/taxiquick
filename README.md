@@ -39,17 +39,17 @@ Once the project is set up, you can:
 
 ## 📂 Project Structure
 
-✦ /html: Directory containing the HTML files for the website, including index.html.
+✦ **/html:** Directory containing the HTML files for the website, including index.html.
 
-✦ /css: Stylesheets to handle the website's design and layout.
+✦ **/css:** Stylesheets to handle the website's design and layout.
 
-✦ /js: JavaScript files used for interactivity and functionality.
+✦ **/js:** JavaScript files used for interactivity and functionality.
 
-✦ /fonts: Custom fonts used in the project.
+✦ **/fonts:** Custom fonts used in the project.
 
-✦ /img: Directory containing all images used in the project.
+✦ **/img:** Directory containing all images used in the project.
 
-✦ /legal: Legal document, containing Terms of Service and Privacy Policy file.
+✦ **/legal:** Legal document, containing Terms of Service and Privacy Policy file.
 
 ## 📝 License
 This project is licensed under the MIT License - see the LICENSE file for details. [MIT License](LICENSE)
