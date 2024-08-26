@@ -4,16 +4,6 @@
    * Copyright 2011-2022 Twitter, Inc.
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
 */ :root {
-   --bs-blue: #1717e5;
-   --bs-indigo: #6610f2;
-   --bs-purple: #6f42c1;
-   --bs-pink: #d63384;
-   --bs-red: #dc3545;
-   --bs-orange: #fd7e14;
-   --bs-yellow: #ffc107;
-   --bs-green: #198754;
-   --bs-teal: #20c997;
-   --bs-cyan: #0dcaf0;
    --bs-white: #fff;
    --bs-gray: #8a8a8e;
    --bs-gray-dark: #343a40;
@@ -26,12 +16,7 @@
    --bs-gray-700: #495057;
    --bs-gray-800: #343a40;
    --bs-gray-900: #202020;
-   --bs-primary: #1717e5;
    --bs-secondary: #8a8a8e;
-   --bs-success: #198754;
-   --bs-info: #0dcaf0;
-   --bs-warning: #ffc107;
-   --bs-danger: #dc3545;
    --bs-light: #f8f9fa;
    --bs-dark: #202020;
    --bs-primary-rgb: 23, 23, 229;
@@ -70,11 +55,9 @@
    --bs-border-radius-xl: 1rem;
    --bs-border-radius-2xl: 2rem;
    --bs-border-radius-pill: 50rem;
-   --bs-link-color: #1717e5;
-   --bs-link-hover-color: #1212b7;
-   --bs-code-color: #d63384;
-   --bs-highlight-bg: #fff3cd;
  }
+
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
  
  *, ::after, ::before {
    box-sizing: border-box;
@@ -98,7 +81,7 @@
    -webkit-text-size-adjust: 100%;
    -webkit-tap-highlight-color: rgba(17, 17, 17, 0);
  }
- 
+
  .h1, .h2, .h3, .h4, .h5, .h6,
  h1, h2, h3, h4, h5, h6 {
    margin-top: 0;
@@ -826,16 +809,10 @@
    --bs-navbar-hover-color: rgba(17, 17, 17, 0.8);
    --bs-navbar-disabled-color: rgba(17, 17, 17, 0.3);
    --bs-navbar-active-color: rgba(17, 17, 17, 0.9);
-   --bs-navbar-brand-padding-y: 0.275rem;
-   --bs-navbar-brand-margin-end: 1rem;
-   --bs-navbar-brand-font-size: 1.5rem;
-   --bs-navbar-brand-color: rgba(17, 17, 17, 0.9);
-   --bs-navbar-brand-hover-color: rgba(17, 17, 17, 0.9);
    --bs-navbar-nav-link-padding-x: 0.5rem;
    --bs-navbar-toggler-padding-y: 0.25rem;
    --bs-navbar-toggler-padding-x: 0.75rem;
    --bs-navbar-toggler-font-size: 1.5rem;
-   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2817, 17, 17, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
    --bs-navbar-toggler-border-color: rgba(17, 17, 17, 0.1);
    --bs-navbar-toggler-border-radius: 99rem;
    --bs-navbar-toggler-focus-width: 0.25rem;
@@ -860,7 +837,6 @@
  .navbar-brand {
    padding-top: var(--bs-navbar-brand-padding-y);
    padding-bottom: var(--bs-navbar-brand-padding-y);
-   margin-right: var(--bs-navbar-brand-margin-end);
    font-size: var(--bs-navbar-brand-font-size);
    color: var(--bs-navbar-brand-color);
    text-decoration: none;
@@ -1605,5 +1581,419 @@ body[data-aos-duration="3000"] [data-aos] {
   html:not(.no-js) [data-aos=zoom-in-left] {
     -webkit-transform: translate3d(100px, 0, 0) scale(.6);
     transform: translate3d(100px, 0, 0) scale(.6);
+  }
+}
+
+.header__container {
+  padding: 2rem 1rem 17rem 1rem;
+}
+
+.header__image__container {
+  position: relative;
+  min-height: 150px;
+  background-image: linear-gradient(
+      to right,
+      rgba(36, 36, 36, 0.849),
+      rgba(255, 255, 255, 0.117)
+    ),
+    url("/img/header.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 2rem;
+}
+
+.header__content {
+  padding: 15rem 2.5rem;
+}
+
+.header__content h1 {
+  max-width: 500px;
+  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  line-height: 4rem;
+  font-weight: 600;
+  color: white;
+}
+
+.header__content p {
+  color: #f3f4f6;
+}
+
+.booking__container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 6rem);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: -140px;
+  padding: 3rem 2rem;
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+}
+
+.booking__container form {
+  width: 100%;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.booking__container .input__group {
+  width: 100%;
+  position: relative;
+}
+
+.booking__container label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333333;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.booking__container input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #202020;
+  color: #333333;
+}
+
+.booking__container input:focus ~ label {
+  font-size: 0.8rem;
+  top: 0;
+}
+
+.form__group p {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #767268;
+}
+
+.booking__container label.active {
+  font-size: 0.8rem;
+  top: 0;
+}
+.booking__container .btn {
+  padding: 20px;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  background-color: #202020;
+  display: grid;
+  place-items: center;
+  transition: 0.3s;
+}
+
+.booking__container .btn .btn-image {
+  width: 32px; 
+  height: 32px;
+}
+
+.booking__container .btn:hover {
+  background-color: rgb(59, 59, 59);
+}
+
+@media (max-width: 768px) {
+
+  .navbar-brand {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .navbar {
+    padding: 0px 0;
+    margin-left: 0px;
+  }
+
+  .navbar.scrolled {
+    padding: 0px 0;
+  }
+
+  .display-1 {
+    font-size: 4rem;
+    padding-top: 40px;
+  }
+
+  .header__container {
+    padding: 1.5rem 1rem 10rem 1rem;
+  }
+
+  .header__content {
+    padding: 10rem 1.5rem;
+  }
+
+  .header__content h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+
+  .booking__container {
+    flex-direction: column;
+    width: 100%;
+    padding: 2rem 1.5rem;
+  }
+
+  .booking__container form {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .booking__container .btn {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__container {
+    padding: 1rem 0.5rem 40rem 0.5rem;
+  }
+
+  .header__content h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+
+  .booking__container {
+    width: calc(100% - 2rem);
+    padding: 1.5rem 1rem;
+  }
+}
+
+#calendar-wrapper {
+  position: absolute;
+  z-index: 9999;  /* Ensure it's above other elements */
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper{
+  width: 450px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+.wrapper header{
+  display: flex;
+  align-items: center;
+  padding: 25px 30px 10px;
+  justify-content: space-between;
+}
+header .icons{
+  display: flex;
+}
+header .icons span{
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  color: #878787;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
+}
+.icons span:last-child{
+  margin-right: -10px;
+}
+header .icons span:hover{
+  background: #f2f2f2;
+}
+header .current-date{
+  margin-top: 20px;
+  margin-left: 14px;
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+.calendar{
+  padding: 30px;
+  padding-left: 0px;
+}
+.calendar ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+}
+.calendar .days{
+  margin-bottom: 20px;
+}
+.calendar li{
+  color: #403131;
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+}
+.calendar .weeks li{
+  font-weight: 500;
+  cursor: default;
+}
+.calendar .days li{
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 30px;
+}
+.days li.inactive{
+  color: #aaa;
+}
+.days li.active{
+  color: #fff;
+}
+.days li::before{
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.days li.active::before{
+  background: #202020;
+}
+.days li:not(.active):hover::before{
+  background: #f2f2f2;
+}
+
+.calendar-wrapper {
+  display: none; /* Initially hidden */
+  position: absolute;
+  z-index: 100;
+  background-color: rgb(62, 62, 62);
+  border: 1px solid #646464;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-wrapper.show {
+  display: block;
+}
+
+#pickup-suggestions {
+  border: 1px solid #303030;
+  border-radius: 12px;
+  max-height: 400px;
+  margin-top: 5px;
+  overflow-y: auto; /* Ensure scrolling is enabled */
+  background-color: rgb(47, 47, 47);
+  position: absolute;
+  z-index: 1200;
+}
+
+#pickup-suggestions div {
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-right: 350px;
+  padding-bottom: 10px;
+  cursor: pointer;
+  white-space: nowrap
+}
+
+#pickup-suggestions div:hover {
+  background-color: #474747;
+}
+
+/* Custom scrollbar styling for Webkit browsers (Chrome, Safari) */
+#pickup-suggestions::-webkit-scrollbar {
+  width: 0px; /* Set the width of the scrollbar */
+}
+
+#drop-off-suggestions {
+  border: 1px solid #303030;
+  border-radius: 12px;
+  max-height: 400px;
+  margin-top: 5px;
+  overflow-y: auto; /* Ensure scrolling is enabled */
+  background-color: rgb(47, 47, 47);
+  position: absolute;
+  z-index: 1200;
+}
+
+#drop-off-suggestions div {
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-right: 350px;
+  padding-bottom: 10px;
+  cursor: pointer;
+  white-space: nowrap
+}
+
+#drop-off-suggestions div:hover {
+  background-color: #474747;
+}
+
+/* Custom scrollbar styling for Webkit browsers (Chrome, Safari) */
+#drop-off-suggestions::-webkit-scrollbar {
+  width: 0px; /* Set the width of the scrollbar */
+}
+
+
+@media (max-width: 768px) {
+  .wrapper{
+    width: 100%;
+    border-radius: 0;
+  }
+  .wrapper header{
+    padding: 20px 25px 10px;
+  }
+  header .current-date{
+    font-size: 1.3rem;
+  }
+  .calendar li{
+    font-size: 1rem;
+  }
+  .calendar .days li{
+    margin-top: 20px;
+  }
+  .calendar .weeks li{
+    font-size: 0.9rem;
+  }
+  .calendar .days li::before{
+    height: 30px;
+    width: 30px;
+  }
+  .calendar .days li.active::before{
+    background: #202020;
+  }
+  .calendar .days li:not(.active):hover::before{
+    background: #f2f2f2;
+  }
+}
+
+.flatpickr-calendar {
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Padding around the calendar */
+  margin-top: 10px;
+  width: 5%;;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+@media (max-width: 768px) {
+  .flatpickr-calendar {
+    width: 25%;
+  }
+}
+
+@media (max-width: 768px) {
+  .responsive-img {
+    margin-left: -40px;
   }
 }
