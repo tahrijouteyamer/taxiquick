@@ -1775,7 +1775,7 @@ body[data-aos-duration="3000"] [data-aos] {
 
 #calendar-wrapper {
   position: absolute;
-  z-index: 9999;  /* Ensure it's above other elements */
+  z-index: 9999;
   background-color: white;
   border: 1px solid #ddd;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -1873,7 +1873,7 @@ header .current-date{
 }
 
 .calendar-wrapper {
-  display: none; /* Initially hidden */
+  display: none;
   position: absolute;
   z-index: 100;
   background-color: rgb(62, 62, 62);
@@ -1892,7 +1892,7 @@ header .current-date{
   border-radius: 12px;
   max-height: 400px;
   margin-top: 5px;
-  overflow-y: auto; /* Ensure scrolling is enabled */
+  overflow-y: auto;
   background-color: rgb(47, 47, 47);
   position: absolute;
   z-index: 1200;
@@ -1911,9 +1911,8 @@ header .current-date{
   background-color: #474747;
 }
 
-/* Custom scrollbar styling for Webkit browsers (Chrome, Safari) */
 #pickup-suggestions::-webkit-scrollbar {
-  width: 0px; /* Set the width of the scrollbar */
+  width: 0px;
 }
 
 #drop-off-suggestions {
@@ -1940,9 +1939,8 @@ header .current-date{
   background-color: #474747;
 }
 
-/* Custom scrollbar styling for Webkit browsers (Chrome, Safari) */
 #drop-off-suggestions::-webkit-scrollbar {
-  width: 0px; /* Set the width of the scrollbar */
+  width: 0px;
 }
 
 
@@ -1979,11 +1977,11 @@ header .current-date{
 }
 
 .flatpickr-calendar {
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px; /* Padding around the calendar */
+  border-radius: 5px;
+  padding: 10px;
   margin-top: 10px;
   width: 5%;;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
