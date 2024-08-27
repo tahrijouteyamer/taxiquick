@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <meta name="author" content="Amer Tahri-Joutey, Hassan Chalf">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -123,7 +124,7 @@
           <form>
             <div class="form__group">
               <div class="input__group">
-                <input type="text" id="pickup-location" maxlength="15" required/>
+                <input type="text" id="pickup-location" maxlength="28" required/>
                 <label for="pickup-location">Pickup Location</label>
                 <div id="pickup-suggestions"></div>
               </div>
@@ -131,7 +132,7 @@
             </div>
             <div class="form__group">
               <div class="input__group">
-                <input type="text" id="drop-off-location" maxlength="15" required/>
+                <input type="text" id="drop-off-location" maxlength="28" required/>
                 <label for="drop-off-location">Drop-off Location</label>
                 <div id="drop-off-suggestions"></div>
               </div>
@@ -176,13 +177,77 @@
               <p>Select Time</p>
             </div>                         
           </form>
-          <button class="btn">
-            <img class="btn-image" src="/img/search.png" alt="Search Icon">
-          </button>
+          <div>
+            <button class="btn">
+              <img class="btn-image" src="/img/search.png" alt="Search Icon" id="search-icon">
+              <img class="btn-image" src="/img/close.png" alt="Close Icon" id="close-icon" style="display: none;">
+          </button>          
         </div>
       </div>
     </header>
-    
+    <div id="available-drivers" class="col-12 col-lg-10 col-xl-8" style="margin-bottom: 150px; margin-top: 50px;" data-aos="fade-up">
+      <img src="/img/drivers.png" alt="Drivers" data-aos="fade" style="position: relative; margin-top: 40px; max-width: 38px; display: block; position: relative; margin-left: auto; margin-right: auto;">
+      <div class="row d-flex align-items-start" data-aos="fade-up">
+          <h2 style="margin-top: -15px; padding-bottom: 30px;" class="h3 pt-5 text-center border-bottom">Available drivers</h2>
+          
+          <div class="driver-card" data-aos="fade-up" data-aos-delay="400">
+              <img src="/img/driver1.jpg" alt="Profile Picture" class="profile-picture">
+              <div class="driver-info">
+                  <h3>John Doe</h3>
+                  <p>Rating: ★★★★☆</p>
+                  <p>Experience: 6 years on the road</p>
+                  <div class="driver-actions">
+                      <button class="icon-btn"><i class="fas fa-comment"></i> Message</button>
+                      <button class="icon-btn"><i class="fas fa-phone"></i> Call</button>
+                      <button class="book-now-btn">Book Now</button>
+                  </div>
+              </div>
+          </div>
+  
+          <div class="driver-card" data-aos="fade-up" data-aos-delay="500">
+              <img src="/img/driver2.jpg" alt="Profile Picture" class="profile-picture">
+              <div class="driver-info">
+                  <h3>Jane Smith</h3>
+                  <p>Rating: ★★★★★</p>
+                  <p>Experience: 4 years on the road</p>
+                  <div class="driver-actions">
+                      <button class="icon-btn"><i class="fas fa-comment"></i> Message</button>
+                      <button class="icon-btn"><i class="fas fa-phone"></i> Call</button>
+                      <button class="book-now-btn">Book Now</button>
+                  </div>
+              </div>
+          </div>
+  
+          <div class="driver-card" data-aos="fade-up" data-aos-delay="600">
+              <img src="/img/driver3.jpg" alt="Profile Picture" class="profile-picture">
+              <div class="driver-info">
+                  <h3>Michael Johnson</h3>
+                  <p>Rating: ★★★☆☆</p>
+                  <p>Experience: 2 years on the road</p>
+                  <div class="driver-actions">
+                      <button class="icon-btn"><i class="fas fa-comment"></i> Message</button>
+                      <button class="icon-btn"><i class="fas fa-phone"></i> Call</button>
+                      <button class="book-now-btn">Book Now</button>
+                  </div>
+              </div>
+          </div>
+  
+          <div class="driver-card" data-aos="fade-up" data-aos-delay="700">
+              <img src="/img/driver4.jpg" alt="Profile Picture" class="profile-picture">
+              <div class="driver-info">
+                  <h3>Emily Davis</h3>
+                  <p>Rating: ★★★★☆</p>
+                  <p>Experience: 2 years on the road</p>
+                  <div class="driver-actions">
+                      <button class="icon-btn"><i class="fas fa-comment"></i> Message</button>
+                      <button class="icon-btn"><i class="fas fa-phone"></i> Call</button>
+                      <button class="book-now-btn">Book Now</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
     </main>
     <footer class="bg-black border-top border-dark">
   <div class="container py-vh-4 text-secondary fw-lighter">
@@ -239,12 +304,15 @@
 
 <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/aos.js"></script>
+
 <script>
+
+
 AOS.init({
  duration: 800,
 });
-</script>
-<script>
+
+
   let scrollpos = window.scrollY
   const header = document.querySelector(".navbar")
   const header_height = header.offsetHeight
@@ -262,12 +330,8 @@ AOS.init({
   })
 
   function formatDate(input) {
-  input.value = input.value.replace(/[^0-9/]/g, ''); 
-
-  let value = input.value.replace(/\D/g, '');
-  if (value.length >= 2) value = value.slice(0, 2) + '/' + value.slice(2);
-  if (value.length >= 5) value = value.slice(0, 5) + '/' + value.slice(5, 9);
-  input.value = value;
+  // Remove all characters from the input value
+  input.value = input.value.replace(/./g, '');
 }
 
 document.getElementById('pickup-date').addEventListener('input', (event) => {
@@ -348,7 +412,7 @@ const renderCalendar = () => {
 
   for (let i = 1; i <= lastDateOfMonth; i++) {
     const isToday = i === date.getDate() && currMonth === date.getMonth() && currYear === date.getFullYear();
-    const isPastDate = new Date(currYear, currMonth, i) < new Date().setHours(0, 0, 0, 0); // Check if date is in the past
+    const isPastDate = new Date(currYear, currMonth, i) < new Date().setHours(0, 0, 0, 0);
     liTag += `<li class="${isToday ? 'active' : isPastDate ? 'disabled' : ''}">${i}</li>`;
   }
 
@@ -384,117 +448,117 @@ const dropOffInput = document.getElementById("drop-off-location");
 const dropOffSuggestions = document.getElementById("drop-off-suggestions");
 
 
-// Original list of streets with postal codes
 const londonStreetsWithPostalCodes = [
-  { street: "Baker Street", postalCode: "W1U" },
-  { street: "Oxford Street", postalCode: "W1D, W1C, W1B" },
-  { street: "Piccadilly", postalCode: "W1J, W1A" },
-  { street: "Earl's Court Road", postalCode: "SW5, SW10" },
-  { street: "Hammersmith Road", postalCode: "W14" },
-  { street: "Rotherhithe Street", postalCode: "SE16" },
-  { street: "Borough Road", postalCode: "SE1" },
-  { street: "St. John's Street", postalCode: "EC1V, EC1R" },
-  { street: "Clerkenwell Road", postalCode: "EC1R" },
-  { street: "Barbican", postalCode: "EC2Y" },
-  { street: "Moorgate", postalCode: "EC2R" },
-  { street: "Liverpool Street", postalCode: "EC2M" },
-  { street: "Victoria Park Road", postalCode: "E9" },
-  { street: "Grove Road", postalCode: "E3" },
-  { street: "Dalston Lane", postalCode: "E8" },
-  { street: "London Road", postalCode: "SE23" },
-  { street: "Chiswick High Road", postalCode: "W4" },
-  { street: "Mortlake Road", postalCode: "SW14" },
-  { street: "Putney High Street", postalCode: "SW15" },
-  { street: "Holloway Road", postalCode: "N7" },
-  { street: "Farringdon Road", postalCode: "EC1M" },
-  { street: "Lambeth Road", postalCode: "SE1" },
-  { street: "Kennington Road", postalCode: "SE11" },
-  { street: "Vauxhall Street", postalCode: "SE11" },
-  { street: "Drury Lane", postalCode: "WC2B" },
-  { street: "Euston Square", postalCode: "NW1" },
-  { street: "Tottenham Court Road", postalCode: "W1T" },
-  { street: "Sloane Street", postalCode: "SW1X" },
-  { street: "Knightsbridge", postalCode: "SW1X" },
-  { street: "Belgravia", postalCode: "SW1W" },
-  { street: "Bond Street", postalCode: "W1S, W1C" },
-  { street: "Regent Street", postalCode: "W1B, W1C" },
-  { street: "Kings Road", postalCode: "SW3, SW10" },
-  { street: "Carnaby Street", postalCode: "W1F" },
-  { street: "Fleet Street", postalCode: "EC4Y, EC4A" },
-  { street: "Charing Cross Road", postalCode: "WC2H, WC2N" },
-  { street: "Park Lane", postalCode: "W1K" },
-  { street: "Shaftesbury Avenue", postalCode: "W1D, WC2H" },
-  { street: "Downing Street", postalCode: "SW1A" },
-  { street: "Pall Mall", postalCode: "SW1Y" },
-  { street: "The Strand", postalCode: "WC2R" },
-  { street: "Whitehall", postalCode: "SW1A" },
-  { street: "Portobello Road", postalCode: "W10, W11" },
-  { street: "Marylebone Road", postalCode: "NW1" },
-  { street: "Euston Road", postalCode: "NW1, WC1H" },
-  { street: "Covent Garden", postalCode: "WC2E" },
-  { street: "Leicester Square", postalCode: "WC2H" },
-  { street: "Soho Square", postalCode: "W1D" },
-  { street: "St James's Street", postalCode: "SW1A" },
-  { street: "Victoria Street", postalCode: "SW1E" },
-  { street: "Westminster Bridge Road", postalCode: "SE1" },
-  { street: "Vauxhall Bridge Road", postalCode: "SW1V" },
-  { street: "Kensington High Street", postalCode: "W8" },
-  { street: "Brompton Road", postalCode: "SW3, SW7" },
-  { street: "Camden High Street", postalCode: "NW1" },
-  { street: "Hampstead High Street", postalCode: "NW3" },
-  { street: "High Holborn", postalCode: "WC1V" },
-  { street: "Ludgate Hill", postalCode: "EC4M" },
-  { street: "Southwark Street", postalCode: "SE1" },
-  { street: "Borough High Street", postalCode: "SE1" },
-  { street: "Clapham High Street", postalCode: "SW4" },
-  { street: "Brixton Road", postalCode: "SW9" },
-  { street: "Peckham High Street", postalCode: "SE15" },
-  { street: "Old Kent Road", postalCode: "SE1, SE15" },
-  { street: "Islington High Street", postalCode: "N1" },
-  { street: "Upper Street", postalCode: "N1" },
-  { street: "Caledonian Road", postalCode: "N1" },
-  { street: "Kingsway", postalCode: "WC2B" },
-  { street: "The Mall", postalCode: "SW1A" },
-  { street: "Queensway", postalCode: "W2" },
-  { street: "Holland Park Avenue", postalCode: "W11" },
-  { street: "Goldhawk Road", postalCode: "W12" },
-  { street: "Edgware Road", postalCode: "W2" },
-  { street: "Fitzroy Street", postalCode: "W1T" },
-  { street: "Charlotte Street", postalCode: "W1T" },
-  { street: "Berwick Street", postalCode: "W1F" },
-  { street: "Great Portland Street", postalCode: "W1W" },
-  { street: "Great Russell Street", postalCode: "WC1B" },
-  { street: "New Bond Street", postalCode: "W1S" },
-  { street: "Mount Street", postalCode: "W1K" },
-  { street: "Aldgate High Street", postalCode: "EC3N" },
-  { street: "Bishopsgate", postalCode: "EC2M" },
-  { street: "Threadneedle Street", postalCode: "EC2R" },
-  { street: "Cheapside", postalCode: "EC2V" },
-  { street: "Cannon Street", postalCode: "EC4N" },
-  { street: "Fenchurch Street", postalCode: "EC3M" },
-  { street: "Leadenhall Street", postalCode: "EC3V" },
-  { street: "Mansion House Street", postalCode: "EC4N" },
-  { street: "Monument Street", postalCode: "EC3R" },
-  { street: "Cornhill", postalCode: "EC3V" },
-  { street: "Lombard Street", postalCode: "EC3V" },
-  { street: "Paternoster Square", postalCode: "EC4M" },
-  { street: "Victoria Embankment", postalCode: "WC2N, EC4Y" },
-  { street: "Tower Hill", postalCode: "EC3N" },
-  { street: "Queen Victoria Street", postalCode: "EC4V" },
-  { street: "Upper Thames Street", postalCode: "EC4V" },
-  { street: "Southwark Bridge Road", postalCode: "SE1" },
-  { street: "Tooley Street", postalCode: "SE1" },
-  { street: "Globe Road", postalCode: "E2" },
-  { street: "Mile End Road", postalCode: "E1, E3" },
-  { street: "Bethnal Green Road", postalCode: "E2" },
-  { street: "Hackney Road", postalCode: "E2" },
-  { street: "Commercial Street", postalCode: "E1" },
-  { street: "Whitechapel Road", postalCode: "E1" },
-  { street: "Cambridge Heath Road", postalCode: "E2" },
-  { street: "Shoreditch High Street", postalCode: "E1, E2" }
+  { street: "100 Baker St", postalCode: "W1U" },
+  { street: "400 Oxford St", postalCode: "W1D, W1C, W1B" },
+  { street: "300 Piccadilly", postalCode: "W1J, W1A" },
+  { street: "500 Earl's Court Rd", postalCode: "SW5, SW10" },
+  { street: "200 Hammersmith Rd", postalCode: "W14" },
+  { street: "600 Rotherhithe St", postalCode: "SE16" },
+  { street: "700 Borough Rd", postalCode: "SE1" },
+  { street: "800 St. John's St", postalCode: "EC1V, EC1R" },
+  { street: "900 Clerkenwell Rd", postalCode: "EC1R" },
+  { street: "1100 Barbican", postalCode: "EC2Y" },
+  { street: "1200 Moorgate", postalCode: "EC2R" },
+  { street: "1300 Liverpool St", postalCode: "EC2M" },
+  { street: "1400 Victoria Park Rd", postalCode: "E9" },
+  { street: "1500 Grove Rd", postalCode: "E3" },
+  { street: "1600 Dalston Ln", postalCode: "E8" },
+  { street: "1700 London Rd", postalCode: "SE23" },
+  { street: "1800 Chiswick High Rd", postalCode: "W4" },
+  { street: "1900 Mortlake Rd", postalCode: "SW14" },
+  { street: "2000 Putney High St", postalCode: "SW15" },
+  { street: "2100 Holloway Rd", postalCode: "N7" },
+  { street: "2200 Farringdon Rd", postalCode: "EC1M" },
+  { street: "2300 Lambeth Rd", postalCode: "SE1" },
+  { street: "2400 Kennington Rd", postalCode: "SE11" },
+  { street: "2500 Vauxhall St", postalCode: "SE11" },
+  { street: "2600 Drury Ln", postalCode: "WC2B" },
+  { street: "2700 Euston Square", postalCode: "NW1" },
+  { street: "2800 Tottenham Court Rd", postalCode: "W1T" },
+  { street: "2900 Sloane St", postalCode: "SW1X" },
+  { street: "3000 Knightsbridge", postalCode: "SW1X" },
+  { street: "3100 Belgravia", postalCode: "SW1W" },
+  { street: "3200 Bond St", postalCode: "W1S, W1C" },
+  { street: "3300 Regent St", postalCode: "W1B, W1C" },
+  { street: "3400 Kings Rd", postalCode: "SW3, SW10" },
+  { street: "3500 Carnaby St", postalCode: "W1F" },
+  { street: "3600 Fleet St", postalCode: "EC4Y, EC4A" },
+  { street: "3700 Charing Cross Rd", postalCode: "WC2H, WC2N" },
+  { street: "3800 Park Ln", postalCode: "W1K" },
+  { street: "3900 Shaftesbury Ave", postalCode: "W1D, WC2H" },
+  { street: "4000 Downing St", postalCode: "SW1A" },
+  { street: "4100 Pall Mall", postalCode: "SW1Y" },
+  { street: "4200 The Strand", postalCode: "WC2R" },
+  { street: "4300 Whitehall", postalCode: "SW1A" },
+  { street: "4400 Portobello Rd", postalCode: "W10, W11" },
+  { street: "4500 Marylebone Rd", postalCode: "NW1" },
+  { street: "4600 Euston Rd", postalCode: "NW1, WC1H" },
+  { street: "4700 Covent Garden", postalCode: "WC2E" },
+  { street: "4800 Leicester Square", postalCode: "WC2H" },
+  { street: "4900 Soho Square", postalCode: "W1D" },
+  { street: "5000 St James's St", postalCode: "SW1A" },
+  { street: "5100 Victoria St", postalCode: "SW1E" },
+  { street: "5200 Westminster Bridge Rd", postalCode: "SE1" },
+  { street: "5300 Vauxhall Bridge Rd", postalCode: "SW1V" },
+  { street: "5400 Kensington High St", postalCode: "W8" },
+  { street: "5500 Brompton Rd", postalCode: "SW3, SW7" },
+  { street: "5600 Camden High St", postalCode: "NW1" },
+  { street: "5700 Hampstead High St", postalCode: "NW3" },
+  { street: "5800 High Holborn", postalCode: "WC1V" },
+  { street: "5900 Ludgate Hill", postalCode: "EC4M" },
+  { street: "6000 Southwark St", postalCode: "SE1" },
+  { street: "6100 Borough High St", postalCode: "SE1" },
+  { street: "6200 Clapham High St", postalCode: "SW4" },
+  { street: "6300 Brixton Rd", postalCode: "SW9" },
+  { street: "6400 Peckham High St", postalCode: "SE15" },
+  { street: "6500 Old Kent Rd", postalCode: "SE1, SE15" },
+  { street: "6600 Islington High St", postalCode: "N1" },
+  { street: "6700 Upper St", postalCode: "N1" },
+  { street: "6800 Caledonian Rd", postalCode: "N1" },
+  { street: "6900 Kingsway", postalCode: "WC2B" },
+  { street: "7000 The Mall", postalCode: "SW1A" },
+  { street: "7100 Queensway", postalCode: "W2" },
+  { street: "7200 Holland Park Ave", postalCode: "W11" },
+  { street: "7300 Goldhawk Rd", postalCode: "W12" },
+  { street: "7400 Edgware Rd", postalCode: "W2" },
+  { street: "7500 Fitzroy St", postalCode: "W1T" },
+  { street: "7600 Charlotte St", postalCode: "W1T" },
+  { street: "7700 Berwick St", postalCode: "W1F" },
+  { street: "7800 Great Portland St", postalCode: "W1W" },
+  { street: "7900 Great Russell St", postalCode: "WC1B" },
+  { street: "8000 New Bond St", postalCode: "W1S" },
+  { street: "8100 Mount St", postalCode: "W1K" },
+  { street: "8200 Aldgate High St", postalCode: "EC3N" },
+  { street: "8300 Bishopsgate", postalCode: "EC2M" },
+  { street: "8400 Threadneedle St", postalCode: "EC2R" },
+  { street: "8500 Cheapside", postalCode: "EC2V" },
+  { street: "8600 Cannon St", postalCode: "EC4N" },
+  { street: "8700 Fenchurch St", postalCode: "EC3M" },
+  { street: "8800 Leadenhall St", postalCode: "EC3V" },
+  { street: "8900 Mansion House St", postalCode: "EC4N" },
+  { street: "9000 Monument St", postalCode: "EC3R" },
+  { street: "9100 Cornhill", postalCode: "EC3V" },
+  { street: "9200 Lombard St", postalCode: "EC3V" },
+  { street: "9300 Paternoster Square", postalCode: "EC4M" },
+  { street: "9400 Victoria Embankment", postalCode: "WC2N, EC4Y" },
+  { street: "9500 Tower Hill", postalCode: "EC3N" },
+  { street: "9600 Queen Victoria St", postalCode: "EC4V" },
+  { street: "9700 Upper Thames St", postalCode: "EC4V" },
+  { street: "9800 Southwark Bridge Rd", postalCode: "SE1" },
+  { street: "9900 Tooley St", postalCode: "SE1" },
+  { street: "10000 Globe Rd", postalCode: "E2" },
+  { street: "10100 Mile End Rd", postalCode: "E1, E3" },
+  { street: "10200 Bethnal Green Rd", postalCode: "E2" },
+  { street: "10300 Hackney Rd", postalCode: "E2" },
+  { street: "10400 Commercial St", postalCode: "E1" },
+  { street: "10500 Whitechapel Rd", postalCode: "E1" },
+  { street: "10600 Cambridge Heath Rd", postalCode: "E2" },
+  { street: "10700 Shoreditch High St", postalCode: "E1, E2" }
 ];
 
-// Transform the data to separate postal codes
+
+let selectedPickup = null;
 const expandedLondonStreets = londonStreetsWithPostalCodes.flatMap(item => {
     return item.postalCode.split(',').map(code => ({
         street: item.street,
@@ -504,10 +568,9 @@ const expandedLondonStreets = londonStreetsWithPostalCodes.flatMap(item => {
 
 input.addEventListener("input", function() {
     const query = this.value.toLowerCase();
-    pickupsuggestions.innerHTML = ""; // Clear previous suggestions
+    pickupsuggestions.innerHTML = "";
 
     if (query.length > 0) {
-        // Filter streets based on the query
         const matches = expandedLondonStreets.filter(item =>
             item.street.toLowerCase().includes(query) || 
             item.postalCode.toLowerCase().includes(query)
@@ -518,10 +581,9 @@ input.addEventListener("input", function() {
             const div = document.createElement("div");
             div.textContent = `${match.street}, ${match.postalCode}`;
             
-            // On clicking a suggestion, fill the input with the selected value
             div.addEventListener("click", function() {
                 input.value = `${match.street}, ${match.postalCode}`;
-                pickupsuggestions.innerHTML = ""; // Clear suggestions after selection
+                pickupsuggestions.innerHTML = "";
             });
             
             pickupsuggestions.appendChild(div);
@@ -531,24 +593,21 @@ input.addEventListener("input", function() {
 
 dropOffInput.addEventListener("input", function() {
     const query = this.value.toLowerCase();
-    dropOffSuggestions.innerHTML = ""; // Clear previous suggestions
+    dropOffSuggestions.innerHTML = ""; 
 
     if (query.length > 0) {
-        // Filter streets based on the query
         const matches = expandedLondonStreets.filter(item =>
             item.street.toLowerCase().includes(query) || 
             item.postalCode.toLowerCase().includes(query)
         );
 
-        // Display matches
         matches.forEach(match => {
             const div = document.createElement("div");
             div.textContent = `${match.street}, ${match.postalCode}`;
-            
-            // On clicking a suggestion, fill the input with the selected value
+
             div.addEventListener("click", function() {
                 dropOffInput.value = `${match.street}, ${match.postalCode}`;
-                dropOffSuggestions.innerHTML = ""; // Clear suggestions after selection
+                dropOffSuggestions.innerHTML = "";
             });
             
             dropOffSuggestions.appendChild(div);
@@ -557,25 +616,83 @@ dropOffInput.addEventListener("input", function() {
 });
 
 document.addEventListener("click", function(event) {
-    if (!event.target.closest("#pickup-suggestions")) {
-        pickupsuggestions.innerHTML = ""; // Clear suggestions if clicked outside
-    }
-    if (!event.target.closest("#drop-off-suggestions")) {
-        dropOffSuggestions.innerHTML = ""; // Clear suggestions if clicked outside
-    }
+  if (!event.target.closest("#pickup-suggestions")) {
+    pickupsuggestions.innerHTML = "";
+  }
+  if (!event.target.closest("#drop-off-suggestions")) {
+    dropOffSuggestions.innerHTML = ""; 
+  }
 });
 
-  flatpickr("#pickup-time", {
-    enableTime: true,
-    noCalendar: true,
-    dateFormat: "H:i",  // 24-hour format
-    time_24hr: true
-  });
+flatpickr("#pickup-time", {
+  enableTime: true,
+  noCalendar: true,
+  dateFormat: "H:i",
+  time_24hr: true
+});
 
-    document.getElementById('show-drivers-btn').addEventListener('click', function() {
-     var driverList = document.getElementById('driver-list');
-      driverList.style.display = driverList.style.display === 'block' ? 'none' : 'block';
-    });
+AOS.init(); // Initializes the AOS library
+
+let isDriversVisible = false; // Flag to track visibility status
+
+// Function to check if all required fields are filled
+function isFormComplete() {
+    const requiredInputs = document.querySelectorAll('form [required]');
+    return Array.from(requiredInputs).every(input => input.value.trim() !== '');
+}
+
+// Function to check if pickup and drop-off locations are different
+function areLocationsDifferent() {
+    const pickupLocation = document.getElementById('pickup-location').value.trim();
+    const dropOffLocation = document.getElementById('drop-off-location').value.trim();
+    return pickupLocation && dropOffLocation && pickupLocation !== dropOffLocation;
+}
+
+document.querySelector('.btn').addEventListener('click', function() {
+    const availableDrivers = document.getElementById('available-drivers');
+    const searchIcon = document.getElementById('search-icon');
+    const closeIcon = document.getElementById('close-icon');
+    
+    if (isFormComplete()) {
+        if (areLocationsDifferent()) {
+            if (isDriversVisible) {
+                // Hide the section
+                availableDrivers.style.opacity = 0;
+                setTimeout(() => {
+                    availableDrivers.style.visibility = 'hidden';
+                    availableDrivers.style.display = 'none';
+                }, 500); // Match this time with the CSS transition duration
+                
+                // Toggle icons
+                searchIcon.style.display = 'block';
+                closeIcon.style.display = 'none';
+
+                isDriversVisible = false; // Update the flag
+            } else {
+                // Show the section
+                availableDrivers.style.display = 'block';
+                availableDrivers.style.visibility = 'visible';
+                setTimeout(() => {
+                    availableDrivers.style.opacity = 1;
+                    AOS.refresh();  // Refresh AOS to trigger the animation
+                    
+                    // Scroll to the available drivers section
+                    availableDrivers.scrollIntoView({ behavior: 'smooth' });
+                }, 10);
+                
+                // Toggle icons
+                searchIcon.style.display = 'none';
+                closeIcon.style.display = 'block';
+
+                isDriversVisible = true; // Update the flag
+            }
+        } else {
+            alert('Pickup and drop-off locations must be different.');
+        }
+    } else {
+        alert('Please fill in all required fields before searching.');
+    }
+});
 </script>
 
   </body>
