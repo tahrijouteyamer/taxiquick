@@ -82,6 +82,10 @@
    -webkit-tap-highlight-color: rgba(17, 17, 17, 0);
  }
 
+ main {
+   display: block;
+ }
+
  .h1, .h2, .h3, .h4, .h5, .h6,
  h1, h2, h3, h4, h5, h6 {
    margin-top: 0;
@@ -1309,6 +1313,7 @@
 
   .fs-4 {
     font-size: 1.8rem !important;
+    margin-right: 2px;
   }
 
   .fs-5 {
@@ -1775,8 +1780,10 @@ body[data-aos-duration="3000"] [data-aos] {
 
 #calendar-wrapper {
   position: absolute;
-  z-index: 9999;
+  z-index: 9999;  /* Ensure it's above other elements */
   background-color: white;
+  margin-top: -33px;
+  margin-left: -2px;
   border: 1px solid #ddd;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -1873,7 +1880,7 @@ header .current-date{
 }
 
 .calendar-wrapper {
-  display: none;
+  display: none; /* Initially hidden */
   position: absolute;
   z-index: 100;
   background-color: rgb(62, 62, 62);
@@ -1890,9 +1897,9 @@ header .current-date{
 #pickup-suggestions {
   border: 1px solid #303030;
   border-radius: 12px;
-  max-height: 400px;
+  max-height: 350px;
   margin-top: 5px;
-  overflow-y: auto;
+  overflow-y: auto; /* Ensure scrolling is enabled */
   background-color: rgb(47, 47, 47);
   position: absolute;
   z-index: 1200;
@@ -1901,7 +1908,7 @@ header .current-date{
 #pickup-suggestions div {
   padding-left: 20px;
   padding-top: 10px;
-  padding-right: 350px;
+  padding-right: 310px;
   padding-bottom: 10px;
   cursor: pointer;
   white-space: nowrap
@@ -1911,9 +1918,23 @@ header .current-date{
   background-color: #474747;
 }
 
+/* Custom scrollbar styling for Webkit browsers (Chrome, Safari) */
 #pickup-suggestions::-webkit-scrollbar {
-  width: 0px;
+  width: 0px; /* Set the width of the scrollbar */
 }
+
+@media (max-width: 768px) {
+  #pickup-suggestions div {
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-right: 17px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    white-space: nowrap
+  }
+}
+
+
 
 #drop-off-suggestions {
   border: 1px solid #303030;
@@ -1929,7 +1950,7 @@ header .current-date{
 #drop-off-suggestions div {
   padding-left: 20px;
   padding-top: 10px;
-  padding-right: 350px;
+  padding-right: 310px;
   padding-bottom: 10px;
   cursor: pointer;
   white-space: nowrap
@@ -1939,16 +1960,30 @@ header .current-date{
   background-color: #474747;
 }
 
+/* Custom scrollbar styling for Webkit browsers (Chrome, Safari) */
 #drop-off-suggestions::-webkit-scrollbar {
-  width: 0px;
+  width: 0px; /* Set the width of the scrollbar */
+}
+
+@media (max-width: 768px) {
+  #drop-off-suggestions div {
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-right: 17px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    white-space: nowrap
+  }
 }
 
 
 @media (max-width: 768px) {
-  .wrapper{
+  #calendar-wrapper, .wrapper{
     width: 100%;
     border-radius: 0;
+    margin-left: -10px;
   }
+  
   .wrapper header{
     padding: 20px 25px 10px;
   }
@@ -1977,11 +2012,11 @@ header .current-date{
 }
 
 .flatpickr-calendar {
-  border-radius: 5px;
-  padding: 10px;
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Padding around the calendar */
   margin-top: 10px;
   width: 5%;;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
 @media (max-width: 768px) {
@@ -1993,5 +2028,139 @@ header .current-date{
 @media (max-width: 768px) {
   .responsive-img {
     margin-left: -40px;
+  }
+}
+
+.driver-card {
+  width: 100%; /* Adjust to fit the parent container */
+  height: auto;
+  background-color: #f8f9fa; /* Light background for contrast */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding: 15px; /* Increased padding for better spacing */
+  transition: transform 0.6s ease, box-shadow 0.6s ease; /* Longer transition time */
+}
+
+.driver-card:hover {
+  transform: translateY(-10px); /* Adjust the distance if needed */
+  box-shadow: 0 8px 16px rgba(151, 151, 151, 0.689); /* Darker shadow on hover */
+}
+
+
+.profile-picture {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+  border: 2px solid #202020; /* Border around the profile picture */
+}
+
+.driver-info {
+  flex: 1; /* Allow the info to take up available space */
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.driver-info h3 {
+  margin-top: 50px;
+  font-size: 1.25rem;
+  color: #343a40; /* Dark text for contrast */
+}
+
+.driver-info p {
+  color: #6c757d; /* Gray text for details */
+}
+
+.driver-actions {
+  display: flex;
+  justify-content: flex-end; /* Align actions to the right */
+  gap: 10px; /* Space between the buttons */
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: #202020;
+  cursor: pointer;
+  font-size: 0.9rem; /* Smaller font size */
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Space between icon and text */
+  transition: color 0.3s ease;
+}
+
+.icon-btn:hover {
+  color: #606060; /* Darker blue on hover */
+}
+
+.book-now-btn {
+  padding: 8px 12px;
+  background-color: #202020; /* Blue button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.9rem; /* Smaller font size */
+  align-self: flex-end; /* Align button to the right */
+}
+
+.book-now-btn:hover {
+  background-color: rgb(59, 59, 59);
+}
+
+#available-drivers {
+  margin-top: 150px;
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  .driver-card {
+    flex-direction: column; /* Stack elements on smaller screens */
+    align-items: center;
+  }
+
+  .profile-picture {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .driver-info h3 {
+    text-align: center;
+  }
+
+  .driver-info p {
+    text-align: center;
+  }
+
+  .driver-actions {
+    justify-content: center; /* Center actions on smaller screens */
+    flex-wrap: wrap;
+  }
+
+  .book-now-btn {
+    align-self: center;
+    margin-top: 10px; /* Adjust spacing on smaller screens */
+  }
+}
+
+
+
+#close-icon {
+  display: none; /* Hide close icon initially */
+}
+
+@media (max-width: 768px) {
+  .img-fluid {
+    max-width: 90%;
   }
 }
