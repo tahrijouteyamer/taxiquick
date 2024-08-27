@@ -62,48 +62,85 @@ video {
 }
 </style>
 
-<script>
-        function handleFormSubmit(event) {
-            event.preventDefault();
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-            const emailInput = document.getElementById('exampleInputEmail1');
-            const emailValue = emailInput.value;
-            const consentCheck = document.getElementById('consentCheck');
+<script type="text/javascript">
+  // Initialize EmailJS with your actual Public Key
+  emailjs.init('t0K-CG2k9n8qwRTFT');
 
-            if (emailInput && consentCheck) {
-                showNotification('Success! Thank you for subscribing to our newsletter.');
-                emailInput.value = '';
-                consentCheck.checked = false;
-            } else {
-                showNotification('Please enter a valid email and check the consent box.');
-            }
-        }
-        function showNotification(message) {
-            const notification = document.getElementById('notification');
-            notification.innerHTML = message + ' <span class="close-btn">✕</span>';
-            notification.style.display = 'block';
+  document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('form');
+      const btn = document.querySelector('button[type="submit"]');
 
-            setTimeout(() => {
-                notification.style.opacity = '0';
+      // Function to get the subscribed emails from localStorage
+      function getSubscribedEmails() {
+          const emails = localStorage.getItem('subscribedEmails');
+          return emails ? JSON.parse(emails) : [];
+      }
 
-                setTimeout(() => {
-                    notification.style.display = 'none';
-                    notification.style.opacity = '1';
-                }, 500);
-            }, 4000); 
+      // Function to add a new email to localStorage
+      function addSubscribedEmail(email) {
+          const emails = getSubscribedEmails();
+          emails.push(email);
+          localStorage.setItem('subscribedEmails', JSON.stringify(emails));
+      }
 
-            document.querySelector('.close-btn').addEventListener('click', () => {
-                notification.style.display = 'none';
-            });
-        }
+      form.addEventListener('submit', function(event) {
+          event.preventDefault();
+          btn.innerHTML = 'Checking...';
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const notification = document.getElementById('notification');
-            notification.addEventListener('click', () => {
-                notification.style.display = 'none';
-            });
-        });
+          const email = form.email.value;
+          const subscribedEmails = getSubscribedEmails();
+
+          // Check if the email is already subscribed
+          if (subscribedEmails.includes(email)) {
+              showNotification('Email is already subscribed.');
+              btn.innerHTML = 'Subscribe';
+          } else {
+              // Add the new email to localStorage
+              addSubscribedEmail(email);
+
+              // Proceed to send the email using EmailJS
+              emailjs.sendForm('service_bhhn5jy', 'template_0ftntag', this)
+                  .then(() => {
+                      btn.innerHTML = 'Subscribe';
+                      showNotification('Success! Thank you for subscribing to our newsletter.');
+                      form.reset();
+                  })
+                  .catch((err) => {
+                      btn.innerHTML = 'Subscribe';
+                      showNotification('Failed to send email. Please try again.');
+                      console.error('Error:', err);
+                  });
+          }
+      });
+  });
+
+  function showNotification(message) {
+      const notification = document.getElementById('notification');
+      if (notification) {
+          notification.innerHTML = message + ' <span class="close-btn">✕</span>';
+          notification.style.display = 'block';
+
+          setTimeout(() => {
+              notification.style.opacity = '0';
+              setTimeout(() => {
+                  notification.style.display = 'none';
+                  notification.style.opacity = '1';
+              }, 500);
+          }, 4000);
+
+          document.querySelector('.close-btn').addEventListener('click', () => {
+              notification.style.display = 'none';
+          });
+      } else {
+          console.error('Notification element not found.');
+      }
+  }
 </script>
+
+
+
 </head>
 
 <body class="d-flex h-100 w-100 bg-black text-white" data-bs-spy="scroll" data-bs-target="#navScroll">
@@ -126,7 +163,7 @@ video {
                     <main class="mb-auto col-xl-9" style="margin-top: 60px;">
                         <h1 style="font-size: 35px; margin-bottom: 25px;">Enter your email address</h1>
 
-                        <form class="row" onsubmit="handleFormSubmit(event)">
+                        <form id="form" class="row" onsubmit="handleFormSubmit(event)">
                             <div class="col-12">
                                 <div class="mb-3">
                                     <input type="email" name="email"
