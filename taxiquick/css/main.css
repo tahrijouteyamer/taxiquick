@@ -1601,7 +1601,7 @@ body[data-aos-duration="3000"] [data-aos] {
       rgba(36, 36, 36, 0.849),
       rgba(255, 255, 255, 0.117)
     ),
-    url("/img/header.jpg");
+    url("../img/header.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
