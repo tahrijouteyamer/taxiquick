@@ -4,15 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../img/favicon.png">
     <meta name="author" content="Amer Tahri-Joutey, Hassan Chalf">
     <meta name="generator" content="Eleventy v2.0.0">
     <meta name="HandheldFriendly" content="true">
     <title>TaxiQuick — Subscribe to Our Newsletter</title>
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
 
 <style>
 video {
@@ -65,7 +65,6 @@ video {
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script type="text/javascript">
-  // Initialize EmailJS with your actual Public Key
   emailjs.init('t0K-CG2k9n8qwRTFT');
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -92,16 +91,13 @@ video {
           const email = form.email.value;
           const subscribedEmails = getSubscribedEmails();
 
-          // Check if the email is already subscribed
           if (subscribedEmails.includes(email)) {
               showNotification('Email is already subscribed.');
               btn.innerHTML = 'Subscribe';
           } else {
-              // Add the new email to localStorage
               addSubscribedEmail(email);
 
-              // Proceed to send the email using EmailJS
-              emailjs.sendForm('service_bhhn5jy', 'template_0ftntag', this)
+              emailjs.sendForm('service_bhhn5jy', 'template_0ftntag', form)
                   .then(() => {
                       btn.innerHTML = 'Subscribe';
                       showNotification('Success! Thank you for subscribing to our newsletter.');
@@ -150,7 +146,7 @@ video {
             <div class="col-12 col-md-7 col-lg-6 col-xl-5 d-flex align-items-start flex-column px-vw-5">
                 <header class="mb-auto py-vh-2 col-12">
                     <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="index.html">
-                        <img src="/img/Taxi.png" width="30" height="30" style="margin-top: -10px;"
+                        <img src="../img/Taxi.png" width="30" height="30" style="margin-top: -10px;"
                             class="d-inline-block align-text-top me-2" alt="TaxiQuick logo">
                         <span class="ms-md-1 mt-1 fw-bolder me-md-5" style="font-family: sans-serif">TaxiQuick</span>
                     </a>
@@ -186,7 +182,7 @@ video {
             </div>
             <div class="col-12 col-md-5 col-lg-6 col-xl-7">
                 <video autoplay loop muted playsinline style="opacity: 0.7;">
-                    <source src="/img/video1.mp4" type="video/mp4">
+                    <source src="../img/video1.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
