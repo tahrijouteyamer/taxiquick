@@ -1780,7 +1780,7 @@ body[data-aos-duration="3000"] [data-aos] {
 
 #calendar-wrapper {
   position: absolute;
-  z-index: 9999;  /* Ensure it's above other elements */
+  z-index: 9999;
   background-color: white;
   margin-top: -33px;
   margin-left: -2px;
@@ -1880,7 +1880,7 @@ header .current-date{
 }
 
 .calendar-wrapper {
-  display: none; /* Initially hidden */
+  display: none;
   position: absolute;
   z-index: 100;
   background-color: rgb(62, 62, 62);
@@ -1899,7 +1899,7 @@ header .current-date{
   border-radius: 12px;
   max-height: 350px;
   margin-top: 5px;
-  overflow-y: auto; /* Ensure scrolling is enabled */
+  overflow-y: auto;
   background-color: rgb(47, 47, 47);
   position: absolute;
   z-index: 1200;
@@ -1918,9 +1918,8 @@ header .current-date{
   background-color: #474747;
 }
 
-/* Custom scrollbar styling for Webkit browsers (Chrome, Safari) */
 #pickup-suggestions::-webkit-scrollbar {
-  width: 0px; /* Set the width of the scrollbar */
+  width: 0px;
 }
 
 @media (max-width: 768px) {
@@ -1941,7 +1940,7 @@ header .current-date{
   border-radius: 12px;
   max-height: 400px;
   margin-top: 5px;
-  overflow-y: auto; /* Ensure scrolling is enabled */
+  overflow-y: auto;
   background-color: rgb(47, 47, 47);
   position: absolute;
   z-index: 1200;
@@ -1960,9 +1959,8 @@ header .current-date{
   background-color: #474747;
 }
 
-/* Custom scrollbar styling for Webkit browsers (Chrome, Safari) */
 #drop-off-suggestions::-webkit-scrollbar {
-  width: 0px; /* Set the width of the scrollbar */
+  width: 0px;
 }
 
 @media (max-width: 768px) {
@@ -2012,11 +2010,11 @@ header .current-date{
 }
 
 .flatpickr-calendar {
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px; /* Padding around the calendar */
+  border-radius: 5px;
+  padding: 10px;
   margin-top: 10px;
   width: 5%;;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
@@ -2032,16 +2030,16 @@ header .current-date{
 }
 
 .driver-card {
-  width: 100%; /* Adjust to fit the parent container */
+  width: 100%;
   height: auto;
-  background-color: #f8f9fa; /* Light background for contrast */
+  background-color: #f8f9fa;
   border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   margin-top: 20px;
-  padding: 15px; /* Increased padding for better spacing */
-  transition: transform 0.6s ease, box-shadow 0.6s ease; /* Longer transition time */
+  padding: 15px;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
 
 .driver-card:hover {
@@ -2056,11 +2054,11 @@ header .current-date{
   border-radius: 50%;
   object-fit: cover;
   margin-right: 20px;
-  border: 2px solid #202020; /* Border around the profile picture */
+  border: 2px solid #202020;
 }
 
 .driver-info {
-  flex: 1; /* Allow the info to take up available space */
+  flex: 1;
   margin-left: 25px;
   display: flex;
   flex-direction: column;
@@ -2069,17 +2067,17 @@ header .current-date{
 .driver-info h3 {
   margin-top: 50px;
   font-size: 1.25rem;
-  color: #343a40; /* Dark text for contrast */
+  color: #343a40;
 }
 
 .driver-info p {
-  color: #6c757d; /* Gray text for details */
+  color: #6c757d;
 }
 
 .driver-actions {
   display: flex;
-  justify-content: flex-end; /* Align actions to the right */
-  gap: 10px; /* Space between the buttons */
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 .icon-btn {
@@ -2087,28 +2085,28 @@ header .current-date{
   border: none;
   color: #202020;
   cursor: pointer;
-  font-size: 0.9rem; /* Smaller font size */
+  font-size: 0.9rem;
   padding: 5px;
   display: flex;
   align-items: center;
-  gap: 5px; /* Space between icon and text */
+  gap: 5px;
   transition: color 0.3s ease;
 }
 
 .icon-btn:hover {
-  color: #606060; /* Darker blue on hover */
+  color: #606060;
 }
 
 .book-now-btn {
   padding: 8px 12px;
-  background-color: #202020; /* Blue button */
+  background-color: #202020;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-size: 0.9rem; /* Smaller font size */
-  align-self: flex-end; /* Align button to the right */
+  font-size: 0.9rem;
+  align-self: flex-end;
 }
 
 .book-now-btn:hover {
@@ -2125,7 +2123,7 @@ header .current-date{
 
 @media (max-width: 768px) {
   .driver-card {
-    flex-direction: column; /* Stack elements on smaller screens */
+    flex-direction: column;
     align-items: center;
   }
 
@@ -2143,20 +2141,20 @@ header .current-date{
   }
 
   .driver-actions {
-    justify-content: center; /* Center actions on smaller screens */
+    justify-content: center;
     flex-wrap: wrap;
   }
 
   .book-now-btn {
     align-self: center;
-    margin-top: 10px; /* Adjust spacing on smaller screens */
+    margin-top: 10px;
   }
 }
 
 
 
 #close-icon {
-  display: none; /* Hide close icon initially */
+  display: none;
 }
 
 @media (max-width: 768px) {
